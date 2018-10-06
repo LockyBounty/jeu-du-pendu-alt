@@ -1,0 +1,130 @@
+@font-face {
+    font-family: "Raleway";
+    src: url("fonts/Raleway-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Oswald";
+    src: url("fonts/Oswald-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Oswald2";
+    src: url("fonts/Oswald-Medium.ttf") format("truetype");
+}
+
+
+html {
+    
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+body {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: green;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 0;
+    margin: auto;
+}
+
+.containerCentre
+{
+    min-height: 90vh;
+    min-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    background-color: orange;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    font-family: Oswald,sans-serif;
+
+    color:black;
+    
+    justify-content: center;
+    flex-wrap: wrap-reverse;
+    margin: auto;
+    margin-top:4%;
+
+
+    
+}
+.titre {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 350px;
+    background-color: white;
+    margin-bottom: 2%;
+    padding:2%;
+}
+.titre h1 {
+    max-width:100%;
+    font-family: Raleway, sans-serif;
+    margin: auto;
+}
+.pendu {
+    display: flex;
+    flex-direction: column;
+    /*background-color: white;*/
+    height: 200px;
+    width: 200px;
+    margin-bottom: 2%;
+    background: url(images/hang1.png);
+    background-size: cover;
+}
+.guess {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    width: 350px;
+    background-color: white;
+    margin-bottom: 2%
+}
+
+input {
+    flex:1;
+    text-decoration: none;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    border-style: double;
+    box-shadow: 5px 5px gray;
+    background-color: #0264A8;
+
+}
+
+.hang1 {
+    background: url(images/hang1.png);
+    background-size: cover;
+}
+.hang2 {
+    background: url(images/hang2.png);
+    background-size: cover;
+}
+.hang3 {
+    background: url(images/hang3.png);
+    background-size: cover;
+}
+.hang4 {
+    background: url(images/hang4.png);
+    background-size: cover;
+}
+.hang5 {
+    background: url(images/hang5.png);
+    background-size: cover;
+}
+.hang6 {
+    background: url(images/hang6.png);
+    background-size: cover;
+}
+.hang7 {
+    background: url(images/hangFinal.png);
+    background-size: cover;
+}
