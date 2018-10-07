@@ -72,12 +72,11 @@ body {
 .pendu {
     display: flex;
     flex-direction: column;
-    /*background-color: white;*/
+    background: url(images/hang1.png);
+    background-size: cover;
     height: 200px;
     width: 200px;
     margin-bottom: 2%;
-    background: url(images/hang1.png);
-    background-size: cover;
 }
 .guess {
     display: flex;
@@ -85,7 +84,8 @@ body {
     height: 100px;
     width: 350px;
     background-color: white;
-    margin-bottom: 2%
+    margin: auto;
+
 }
 
 input {
