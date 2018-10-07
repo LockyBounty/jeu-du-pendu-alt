@@ -85,9 +85,9 @@ function guessLetter() {
     }
     
     if (echec >= 6) {
-        document.querySelector(".guess").innerHTML = `<p>HELAS, VOUS N'AVEZ GUERE PU LE SAUVER...</p>`;
+        document.querySelector(".guess").innerHTML = `<p>HELAS, VOUS N'AVEZ GUERE PU LE SAUVER...</p>しまった！`;
     } else if (verifTab.join() === tab.join()) {
-        document.querySelector(".guess").innerHTML = `<p>FÉLICITATION ! VOUS AVEZ REUSSI AVEC ${echec} FAUTE(S)</p>`;
+        document.querySelector(".guess").innerHTML = `<p>FÉLICITATION ! VOUS AVEZ REUSSI AVEC ${echec} FAUTE(S)</p>おめでとう !`;
     }
     
 }
