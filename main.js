@@ -66,7 +66,7 @@ function guessLetter() {
         if (vrai !== true && faux === true) {
             alert('RATÉ');
             echec++;
-            
+           
             if (echec === 1) {
                 document.querySelectorAll(".pendu")[0].className = "pendu hang2";
             } else if (echec === 2) {
@@ -81,14 +81,22 @@ function guessLetter() {
                 document.querySelector(".pendu").className = "pendu hang7";
                 break;
             } 
+            
         }
     }
     
     if (echec >= 6) {
-        document.querySelector(".guess").innerHTML = `<p>HELAS, VOUS N'AVEZ GUERE PU LE SAUVER...</p>しまった！`;
-    } else if (verifTab.join() === tab.join()) {
-        document.querySelector(".guess").innerHTML = `<p>FÉLICITATION ! VOUS AVEZ REUSSI AVEC ${echec} FAUTE(S)</p>おめでとう !`;
-    }
+        document.querySelector(".guess").innerHTML = `<p>HELAS, VOUS N'AVEZ GUERE PU LE SAUVER...</p><strong>しまった！</strong>`;
+    } else if (echec===0){
+        
+            document.querySelectorAll(".pendu")[0].className = "pendu succes";
+            document.querySelector(".guess").innerHTML = `<p>FÉLICITATION ! VOUS AVEZ REUSSI AVEC ${echec} FAUTE(S)</p><strong>おめでとう !</strong>`;
+        }
+    
+    
+    else if (verifTab.join() === tab.join()) {
+        document.querySelector(".guess").innerHTML = `<p>FÉLICITATION ! VOUS AVEZ REUSSI AVEC ${echec} FAUTE(S)</p><strong>おめでとう !</strong>`;
+    } 
     
 }
 

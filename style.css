@@ -128,3 +128,8 @@ input {
     background: url(images/hangFinal.png);
     background-size: cover;
 }
+.succes {
+    background: url(images/riceField.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
