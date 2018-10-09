@@ -1,5 +1,3 @@
-//let tab = ['B', 'O', 'N', 'J', 'O', 'U', 'R'];
-//let verifTab = [];
 let memory = [];
 let echec = 0;
 
@@ -18,34 +16,35 @@ let tab = [];
 let verifTab = [];
 
 function create() {
-    let motEntréé = document.querySelector('#champSaisie').value; //le mot a deviner
-    let word = motEntréé.toUpperCase();
+    let motEntree = document.querySelector('#champSaisie').value; //le mot a deviner
+    let word = motEntree.toUpperCase();
     tab = word.split('');
+    document.querySelector('.phrase').innerHTML = "ENTRÉE UNE LETTRE";
     document.querySelector('#champSaisie').style.display = "none";
     document.querySelector('#boutton').style.display = "none";
     document.querySelector('#bouttonTest').style.display = "block";
     document.querySelector('#champLetter').style.display = "block";
-
+    document.querySelector('#champLetter').focus();
 }
 
 function guessLetter() {
-    document.querySelector('#champLetter').value = "";
     document.querySelector('#champLetter').focus();
     let lettre = document.querySelector('#champLetter').value.toUpperCase();
 
     if (verifTab.join() !== tab.join()) {
-        //let lettre = prompt(`DEVINEZ LE MOT SECRET : ${verifTab}\nVous avez entré : ${memory}`).toUpperCase();
         let checkLettre = false;
         verifContenu(lettre);
         for (i = 0; i < tab.length; i++) {
             if (lettre === tab[i]) {
-                document.querySelector('.mot').innerHTML = "LETTRE TROUVER";
+                document.querySelector('.mot').innerHTML = "LETTRE TROUVÉE !";
                 verifTab[i] = tab[i];
                 checkLettre = true;
             }
         }
-        if (checkLettre == false) {
-            document.querySelector('.mot').innerHTML = "C'est ratée";
+        document.querySelector('.verif').innerHTML = `${verifTab}`;
+        document.querySelector('.lettreDevine').innerHTML = `LES LETTRES DEJA SELECTIONNER : <br>${memory}`;
+        if (checkLettre === false) {
+            document.querySelector('.mot').innerHTML = "C'ESR RATÉ";
             echec++;
 
             if (echec === 1) {
@@ -72,11 +71,16 @@ function guessLetter() {
             }
         }
     }
+    document.querySelector('#champLetter').value = "";
 }
 
 document.querySelector('#champLetter').style.display = "none";
+document.querySelector('#champSaisie').focus();
+
 document.querySelector('#boutton').addEventListener('click', create);
+
 document.querySelector('#bouttonTest').addEventListener('click', guessLetter);
+
 document.addEventListener('keyup',  function(event) {
     if(event.keyCode == 13) {
         guessLetter();

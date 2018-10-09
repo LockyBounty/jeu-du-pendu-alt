@@ -31,6 +31,7 @@ body {
     align-items: center;
     padding: 0;
     margin: auto;
+    overflow: hidden;
 }
 
 .containerCentre
@@ -51,10 +52,10 @@ body {
     flex-wrap: wrap-reverse;
     margin: auto;
     margin-top:4%;
-
-
-    
 }
+
+@keyframes
+
 .titre {
     display: flex;
     flex-direction: column;
@@ -78,6 +79,11 @@ body {
     width: 200px;
     margin-bottom: 2%;
 }
+
+.verif {
+    font-size: 40px;
+}
+
 .guess {
     display: flex;
     flex-direction: column;
@@ -108,7 +114,15 @@ input {
 
 #bouttonTest {
     display: none;
+    height: 30px;
 }
+
+.lettreDevine {
+    osition: absolute;
+    font-size: 30px;
+}
+
+
 
 .hang1 {
     background: url(images/hang1.png);
@@ -135,7 +149,7 @@ input {
     background-size: cover;
 }
 .hang7 {
-    background: url(images/hangFinal.png);
+    background: url(images/lose.png);
     background-size: cover;
 }
 .succes {
