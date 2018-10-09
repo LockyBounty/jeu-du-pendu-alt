@@ -1,9 +1,10 @@
-let tab = ['B', 'O', 'N', 'J', 'O', 'U', 'R'];
-let verifTab = ['', '', '', '', '', '', ''];
+//let tab = ['B', 'O', 'N', 'J', 'O', 'U', 'R'];
+//let verifTab = [];
 let memory = [];
+let echec = 0;
 
 function verifContenu(mot) {
-    for(i = 0; i < memory.length; i++) {
+    for (i = 0; i < memory.length; i++) {
         if (mot === memory[i]) {
             break;
         }
@@ -13,60 +14,40 @@ function verifContenu(mot) {
     }
 }
 
-/*
-function guessLetter() {
-    let echec = 0;
-    while (verifTab.join() !== tab.join()) {
-        let lettre = prompt(`DEVINEZ LE MOT SECRET : ${verifTab}\nVous avez entré : ${memory}`).toUpperCase();
-        while(lettre.length > 1) {
-            alert('ENTREZ UN SEUL CARACTÉRE !');
-            return guessLetter();
-        }
-        let vrai;
-        let faux;
-        verifContenu(lettre);
-        for (i = 0; i < tab.length; i++) {
-            if (lettre === tab[i]) {
-                alert('LETTRE TROUVÉE !');
-                verifTab.splice(i, 1, tab[i]);
-                vrai = true;
-            } else {
-                faux = true;
-            }
-       
-        if(vrai !== true && faux === true) {
-            alert('RATÉ');
-            echec++;
-        }   
-    }
-    confirm(`FÉLICITATION ! VOUS AVEZ REUSSI AVEC ${echec} FAUTE(S)`);
+let tab = [];
+let verifTab = [];
+
+function create() {
+    let motEntréé = document.querySelector('#champSaisie').value; //le mot a deviner
+    let word = motEntréé.toUpperCase();
+    tab = word.split('');
+    document.querySelector('#champSaisie').style.display = "none";
+    document.querySelector('#boutton').style.display = "none";
+    document.querySelector('#bouttonTest').style.display = "block";
+    document.querySelector('#champLetter').style.display = "block";
+
 }
-*/
 
 function guessLetter() {
-    let echec = 0;
-    while (verifTab.join() !== tab.join()) {
-        let lettre = prompt(`DEVINEZ LE MOT SECRET : ${verifTab}\nVous avez entré : ${memory}`).toUpperCase();
-        while (lettre.length > 1) {
-            alert('ENTREZ UN SEUL CARACTERE !');
-            return guessLetter();
-        }
-        let vrai;
-        let faux;
+    document.querySelector('#champLetter').value = "";
+    document.querySelector('#champLetter').focus();
+    let lettre = document.querySelector('#champLetter').value.toUpperCase();
+
+    if (verifTab.join() !== tab.join()) {
+        //let lettre = prompt(`DEVINEZ LE MOT SECRET : ${verifTab}\nVous avez entré : ${memory}`).toUpperCase();
+        let checkLettre = false;
         verifContenu(lettre);
         for (i = 0; i < tab.length; i++) {
             if (lettre === tab[i]) {
-                alert('LETTRE TROUVÉE !');
-                verifTab.splice(i, 1, tab[i]);
-                vrai = true;
-            } else {
-                faux = true;
+                document.querySelector('.mot').innerHTML = "LETTRE TROUVER";
+                verifTab[i] = tab[i];
+                checkLettre = true;
             }
         }
-        if (vrai !== true && faux === true) {
-            alert('RATÉ');
+        if (checkLettre == false) {
+            document.querySelector('.mot').innerHTML = "C'est ratée";
             echec++;
-           
+
             if (echec === 1) {
                 document.querySelectorAll(".pendu")[0].className = "pendu hang2";
             } else if (echec === 2) {
@@ -77,27 +58,28 @@ function guessLetter() {
                 document.querySelectorAll(".pendu")[0].className = "pendu hang5";
             } else if (echec === 5) {
                 document.querySelectorAll(".pendu")[0].className = "pendu hang6";
-            } else if (echec >= 6) {
+            } else {
                 document.querySelector(".pendu").className = "pendu hang7";
-                break;
-            } 
-            
+                document.querySelector(".guess").innerHTML = `<p>HELAS, VOUS N'AVEZ GUERE PU LE SAUVER...</p><strong>しまった！</strong>`;
+            }
+
+        }
+
+        else {
+            if (verifTab.join() === tab.join()) {
+                document.querySelectorAll(".pendu")[0].className = "pendu succes";
+                document.querySelector(".guess").innerHTML = `<p>FÉLICITATION ! VOUS AVEZ REUSSI AVEC ${echec} FAUTE(S)</p><strong>おめでとう !</strong>`;
+            }
         }
     }
-    
-    if (echec >= 6) {
-        document.querySelector(".guess").innerHTML = `<p>HELAS, VOUS N'AVEZ GUERE PU LE SAUVER...</p><strong>しまった！</strong>`;
-    } else if (echec===0){
-        
-            document.querySelectorAll(".pendu")[0].className = "pendu succes";
-            document.querySelector(".guess").innerHTML = `<p>FÉLICITATION ! VOUS AVEZ REUSSI AVEC ${echec} FAUTE(S)</p><strong>おめでとう !</strong>`;
-        }
-    
-    
-    else if (verifTab.join() === tab.join()) {
-        document.querySelector(".guess").innerHTML = `<p>FÉLICITATION ! VOUS AVEZ REUSSI AVEC ${echec} FAUTE(S)</p><strong>おめでとう !</strong>`;
-    } 
-    
 }
 
-guessLetter();
+document.querySelector('#champLetter').style.display = "none";
+document.querySelector('#boutton').addEventListener('click', create);
+document.querySelector('#bouttonTest').addEventListener('click', guessLetter);
+document.addEventListener('keyup',  function(event) {
+    if(event.keyCode == 13) {
+        guessLetter();
+    }
+});
+

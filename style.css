@@ -81,11 +81,14 @@ body {
 .guess {
     display: flex;
     flex-direction: column;
-    height: 100px;
     width: 350px;
     background-color: white;
     margin: auto;
 
+}
+
+#champSaisie {
+    height: 20px;
 }
 
 input {
@@ -95,9 +98,16 @@ input {
     padding: 15px;
     border-radius: 5px;
     border-style: double;
-    box-shadow: 5px 5px gray;
+    /*box-shadow: 5px 5px gray;*/
     background-color: #0264A8;
+}
 
+#boutton {
+    height: 30px;
+}
+
+#bouttonTest {
+    display: none;
 }
 
 .hang1 {
