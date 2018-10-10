@@ -147,8 +147,21 @@ input {
     background-size: cover;
 }
 .hang7 {
-    background: url(images/lose.png);
+    background-image: url(images/hangFinal.png);
     background-size: cover;
+    animation-name: hang;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+
+    -webkit-animation-name: hang;
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes hang {
+    0% {background-image: url(./images/hangFinal.png);}
+    90% {background-image: url(./images/hangFinal.png);}
+    100% {background-image: url(./images/lose.png);}
 }
 .succes {
     background: url(images/riceField.gif);
