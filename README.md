@@ -6,7 +6,7 @@ _Locky and Faysal_
 
 # Try yourself here :
 
-[link web](https://lockybounty.github.io/jeu-du-pendu/)
+[link web](https://lockybounty.github.io/jeu-du-pendu-alt/)
 
 # Exercice : jeu du pendu
 
