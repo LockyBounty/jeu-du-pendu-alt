@@ -19,7 +19,7 @@ function create() {
     let motEntree = document.querySelector('#champSaisie').value; //le mot a deviner
     let word = motEntree.toUpperCase();
     tab = word.split('');
-    document.querySelector('.phrase').innerHTML = "ENTRÉE UNE LETTRE";
+    document.querySelector('.phrase').innerHTML = "ENTREZ UNE LETTRE";
     document.querySelector('#champSaisie').style.display = "none";
     document.querySelector('#boutton').style.display = "none";
     document.querySelector('#bouttonTest').style.display = "block";
@@ -42,7 +42,7 @@ function guessLetter() {
             }
         }
         document.querySelector('.verif').innerHTML = `${verifTab}`;
-        document.querySelector('.lettreDevine').innerHTML = `LES LETTRES DEJA SELECTIONNER : <br>${memory}`;
+        document.querySelector('.lettreDevine').innerHTML = `LES LETTRES DEJA ENTREES : <br>${memory}`;
         if (checkLettre === false) {
             document.querySelector('.mot').innerHTML = "C'ESR RATÉ";
             echec++;
