@@ -42,9 +42,9 @@ function guessLetter() {
             }
         }
         document.querySelector('.verif').innerHTML = `${verifTab}`;
-        document.querySelector('.lettreDevine').innerHTML = `LES LETTRES DEJA ENTREES : <br>${memory}`;
+        document.querySelector('.lettreDevine').innerHTML = `LETTRES DEJA ENTREES : <br>${memory}`;
         if (checkLettre === false) {
-            document.querySelector('.mot').innerHTML = "C'ESR RATÉ";
+            document.querySelector('.mot').innerHTML = "C'EST RATÉ !";
             echec++;
 
             if (echec === 1) {
